@@ -1,0 +1,36 @@
+{
+  "name": "task-1",
+  "version": "1.0.0",
+  "description": "Setup a http server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oisavictor/Task-1.git"
+  },
+  "keywords": [
+    "Slack",
+    "Username",
+    "Age",
+    "HNG9",
+    "Bio"
+  ],
+  "author": "Victor Oisamoje",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Oisavictor/Task-1/issues"
+  },
+  "homepage": "https://github.com/Oisavictor/Task-1#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.11"
+  }
+}
