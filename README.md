@@ -11,3 +11,6 @@
     - Bio(description about yourself) should be a **string** datatype
     
 - Push to **GitHub**
+
+
+To test our READ operation,  go to http://localhost:3000/account/list endpoint and it will return all the info data:

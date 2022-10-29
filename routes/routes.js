@@ -1,17 +1,10 @@
-const express = require('express');
+const express = require("express")
 const router = express.Router();
-const Info = require('../models/info')
+const fs = require('fs');
+const InfoRoutes = require('./info') // import info route
 
-// Get Route handle for all info 
-router.get('/', (req, re, nexts) => {
-    res.send()
-});
 
-// add a new info to the db
-router.post('/new', (req, res) => {
-    Info.create(req.body).then((info) => {
-        res.send(info);
-    }).catch(next);
-});
+router.use(InfoRoutes) // use account route
 
-module.exports = router
+
+module.exports = router;

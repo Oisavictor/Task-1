@@ -1,32 +1,25 @@
-const express = require('express');
-const bodyParser = require('body-parser');
- const routes = require('./routes/routes');
-//  require('dotenv').config();
- const mongoose = require('mongoose');
+const express = require("express");
+const bodyParser = require("body-parser");
+const fs = require('fs');
+const routes = require('./routes/Routes');
 
-// initialize the express app
-const app = express();
+// create our express app
+const app = express()
 
-// connect to mongodb
-mongoose.connect('mongodb://localhost:27017/info');
-mongoose.Promise = global.Promise;
 
 // middleware
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
-app.use(bodyParser.json());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
+// routes
+app.use('/', routes)
 
-// initialize routes
-app.use('/', routes );
 
 // Port assignment
-port = process.env.Port || 4000,
+port = process.env.Port || 3000,
 
+//start server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
