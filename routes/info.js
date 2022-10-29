@@ -17,14 +17,14 @@ const getInfoData = () => {
 
 
 // get all info from the json file
-infoRoutes.get('/info/list', (req, res) => {
+infoRoutes.get('/', (req, res) => {
     const info = getInfoData()
     res.send(info)
 });
 
 
 // add info to json file
-infoRoutes.post('/info/addInfo', (req, res) => {
+infoRoutes.post('/addInfo', (req, res) => {
     const existInfo = getInfoData()
     const newInfoId = Math.floor(100000 + Math.random() * 900000)
  

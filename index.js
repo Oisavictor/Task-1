@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require('fs');
-const routes = require('./Routes/routes');
+const routes = require('./Routes/info');
 
 // create our express app
 const app = express()
