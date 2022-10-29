@@ -26,9 +26,9 @@ infoRoutes.get('/', (req, res) => {
 // add info to json file
 infoRoutes.post('/addInfo', (req, res) => {
     const existInfo = getInfoData()
-    const newInfoId = Math.floor(100000 + Math.random() * 900000)
- 
-    existInfo[newInfoId] = req.body
+    // const newInfoId = Math.floor(100000 + Math.random() * 900000)
+    existInfo = req.body
+    // existInfo[newInfoId] = req.body
     saveInfoData(existInfo);
     res.send({success: true, msg: 'info added successfully'})
 });
