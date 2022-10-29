@@ -1,15 +1,32 @@
-const http = require('http');
+const express = require('express');
+const bodyParser = require('body-parser');
+ const routes = require('./routes/routes');
+//  require('dotenv').config();
+ const mongoose = require('mongoose');
+
+// initialize the express app
+const app = express();
+
+// connect to mongodb
+mongoose.connect('mongodb://localhost:27017/info');
+mongoose.Promise = global.Promise;
+
+// middleware
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 
-const host = 'localhost';
-const port = 8000;
 
-const requestListener = function (req, res) {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(`{"message": "This is a JSON response"}`);
-};
+// initialize routes
+app.use('/', routes );
 
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+// Port assignment
+port = process.env.Port || 4000,
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });
