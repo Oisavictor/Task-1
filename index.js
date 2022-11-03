@@ -4,7 +4,7 @@ const fs = require('fs');
 const routes = require('./routes/info');
 
 // create our express app
-const app = express()
+const app = express();
 
 
 // middleware

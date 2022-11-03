@@ -20,20 +20,35 @@ const getInfoData = () => {
 infoRoutes.get('/', (req, res) => {
     const info = getInfoData()
     res.send(info)
+    saveInfoData(result);
 });
 
 
 // add info to json file
-infoRoutes.post('/addInfo', (req, res) => {
-    const existInfo = getInfoData()
-    // const newInfoId = Math.floor(100000 + Math.random() * 900000)
-    existInfo = req.body
-    // existInfo[newInfoId] = req.body
-    saveInfoData(existInfo);
-    res.send({success: true, msg: 'info added successfully'})
+infoRoutes.post('/info', (req, res) => {
+    const  data = req.body;
+    
+    var result;
+    const X = data.X;
+    const Y = data.Y;
+    const operation_type = data.operation_type
+
+
+    const operation_types = ["+", "-", "*"];
+    if(!operation_types.includes(operation_type)){
+        return res.status(400).json({ result : "Invalid operation type provided."});
+    }
+   
+    if (operation_type == "+") {
+        result = X + Y;
+    }else if(operation_type == "-"){
+        result = X - Y;
+    }else if(operation_type == "*"){
+        result = X * Y;
+    }
+    
+    return res.status(200).json({ slackUsername : "Victor Oisamoje", operation_type, result});
 });
-
-
 
 
 
