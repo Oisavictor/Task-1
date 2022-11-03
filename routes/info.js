@@ -47,7 +47,7 @@ infoRoutes.post('/info', (req, res) => {
         result = X * Y;
     }
     
-    return res.status(200).json({ slackUsername : "Victor Oisamoje", operation_type, result});
+    return res.status(200).json({ slackUsername : "Victor Oisamoje", "result": result , "operation_type" : operation_type });
 });
 
 
