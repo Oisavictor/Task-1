@@ -30,20 +30,20 @@ infoRoutes.post('/info', (req, res) => {
     
     var result;
     const X = data.X;
-    const Y = parseInt(data.Y);
+    const Y = data.Y;
     const operation_type = data.operation_type
 
 
-    const operation_types = ["+", "-", "*"];
+    const operation_types = ["addition", "subtraction", "multiplication"];
     if(!operation_types.includes(operation_type)){
         return res.status(400).json({ result : "Invalid operation type provided."});
     }
    
-    if (operation_type == "+") {
+    if (operation_type == "addition") {
         result = X + Y;
-    }else if(operation_type == "-"){
+    }else if(operation_type == "subtraction"){
         result = X - Y;
-    }else if(operation_type == "*"){
+    }else if(operation_type == "multiplication"){
         result = X * Y;
     }
     
